@@ -1,0 +1,188 @@
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║           HOW TO UPLOAD LANSNIX TO GITHUB                     ║
+║           (Super Simple - No Coding Knowledge Needed!)        ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
+
+Created by: Yasir Ispawoo
+Project: LANsnix - Realtime LAN Monitoring Platform
+
+
+📋 WHAT YOU NEED:
+─────────────────────────────────────────────────────────────────
+1. A GitHub account (free) - Create at: https://github.com
+2. Git installed on your computer
+3. 10 minutes of your time
+
+
+🚀 EASIEST METHOD - USE THE AUTOMATED SCRIPT:
+─────────────────────────────────────────────────────────────────
+
+STEP 1: Install Git (if not installed)
+   → Download from: https://git-scm.com/download/win
+   → Run the installer
+   → Click "Next" on everything
+
+STEP 2: Create GitHub Account
+   → Go to: https://github.com
+   → Click "Sign up"
+   → Follow the steps
+
+STEP 3: Create Repository on GitHub
+   → Go to: https://github.com/new
+   → Repository name: lansnix
+   → Description: Realtime LAN Discovery & Monitoring Platform
+   → Make it Public
+   → Click "Create repository"
+
+STEP 4: Run the Setup Script
+   → Double-click: setup-git.bat
+   → Follow the prompts
+   → Enter your GitHub username when asked
+   → Enter your password when asked
+
+STEP 5: Done! 🎉
+   → Your project is now on GitHub!
+   → Visit: https://github.com/YOUR-USERNAME/lansnix
+
+
+📖 MANUAL METHOD (If script doesn't work):
+─────────────────────────────────────────────────────────────────
+
+Open Command Prompt in the LANsnix folder and run these commands
+ONE BY ONE (press Enter after each):
+
+1. git init
+
+2. git config --global user.name "Your Name"
+
+3. git config --global user.email "your@email.com"
+
+4. git add .
+
+5. git commit -m "Initial commit: LANsnix v1.0.0"
+
+6. git remote add origin https://github.com/YOUR-USERNAME/lansnix.git
+   (Replace YOUR-USERNAME with your actual GitHub username)
+
+7. git branch -M main
+
+8. git push -u origin main
+   (Enter your GitHub username and password when prompted)
+
+
+🔑 IF PASSWORD DOESN'T WORK:
+─────────────────────────────────────────────────────────────────
+
+You need a Personal Access Token:
+
+1. Go to: https://github.com/settings/tokens
+2. Click "Generate new token (classic)"
+3. Name it: "LANsnix Upload"
+4. Check the box: "repo"
+5. Click "Generate token"
+6. COPY THE TOKEN (you won't see it again!)
+7. Use this token as your password when pushing
+
+
+✅ VERIFY IT WORKED:
+─────────────────────────────────────────────────────────────────
+
+1. Go to: https://github.com/YOUR-USERNAME/lansnix
+2. You should see all your files!
+3. The README.md should display nicely
+
+
+🎨 MAKE IT LOOK PROFESSIONAL:
+─────────────────────────────────────────────────────────────────
+
+On your GitHub repository page:
+
+1. Click the ⚙️ gear icon next to "About"
+2. Add these topics:
+   - network-monitoring
+   - lan-scanner
+   - device-discovery
+   - golang
+   - nextjs
+   - docker
+   - linux
+   - self-hosted
+   - homelab
+   - cybersecurity
+
+3. Add website: https://github.com/ispawoo/lansnix
+4. Click "Save changes"
+
+
+📸 ADD SCREENSHOTS (Optional):
+─────────────────────────────────────────────────────────────────
+
+1. Run LANsnix: docker compose up -d
+2. Open: http://localhost:3000
+3. Take screenshots
+4. Save them in: docs/screenshots/
+5. Run these commands:
+   git add docs/screenshots/
+   git commit -m "Add screenshots"
+   git push
+
+
+🔄 FUTURE UPDATES:
+─────────────────────────────────────────────────────────────────
+
+When you make changes to the code:
+
+git add .
+git commit -m "Description of what you changed"
+git push
+
+
+❌ TROUBLESHOOTING:
+─────────────────────────────────────────────────────────────────
+
+Problem: "git is not recognized"
+Solution: Install Git and restart Command Prompt
+
+Problem: "Permission denied"
+Solution: Use Personal Access Token instead of password
+
+Problem: "Repository not found"
+Solution: Make sure you created the repository on GitHub first
+
+Problem: "Failed to push"
+Solution: Check your username and password/token
+
+
+📞 NEED MORE HELP?
+─────────────────────────────────────────────────────────────────
+
+1. Read: GITHUB_SETUP_GUIDE.md (detailed guide with pictures)
+2. Watch YouTube: "How to upload project to GitHub"
+3. Ask on: https://stackoverflow.com
+
+
+🎉 THAT'S IT!
+─────────────────────────────────────────────────────────────────
+
+Your LANsnix project is now on GitHub and ready to share!
+
+Share your repository link:
+https://github.com/YOUR-USERNAME/lansnix
+
+Post it on:
+- Reddit: r/selfhosted, r/homelab
+- Twitter
+- LinkedIn
+- Your portfolio
+
+
+═══════════════════════════════════════════════════════════════
+
+Created by Yasir Ispawoo
+https://github.com/ispawoo
+
+Good luck! 🚀
+
+═══════════════════════════════════════════════════════════════
