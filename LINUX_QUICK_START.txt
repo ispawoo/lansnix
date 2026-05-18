@@ -1,0 +1,201 @@
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║           LANsnix - Linux Quick Start Guide                   ║
+║           (Copy and paste these commands!)                    ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
+
+Created by: Yasir Ispawoo
+Project: LANsnix - Realtime LAN Monitoring Platform
+
+
+🚀 FASTEST METHOD - DOCKER (3 Commands):
+═══════════════════════════════════════════════════════════════
+
+1. Install Docker (Ubuntu/Debian):
+   sudo apt update && sudo apt install -y docker.io docker-compose
+
+2. Clone and start:
+   git clone https://github.com/YOUR-USERNAME/lansnix.git
+   cd lansnix
+   sudo docker compose up -d
+
+3. Open browser:
+   http://localhost:3000
+
+DONE! 🎉
+
+
+📋 USEFUL COMMANDS:
+═══════════════════════════════════════════════════════════════
+
+View logs:
+   sudo docker compose logs -f
+
+Stop LANsnix:
+   sudo docker compose down
+
+Restart LANsnix:
+   sudo docker compose restart
+
+Update LANsnix:
+   git pull && sudo docker compose pull && sudo docker compose up -d
+
+
+🔧 ALTERNATIVE - SYSTEM INSTALL:
+═══════════════════════════════════════════════════════════════
+
+1. Clone repository:
+   git clone https://github.com/YOUR-USERNAME/lansnix.git
+   cd lansnix
+
+2. Run installer:
+   sudo bash scripts/install.sh
+
+3. Start service:
+   sudo systemctl start lansnix
+   sudo systemctl enable lansnix
+
+4. Check status:
+   sudo systemctl status lansnix
+
+5. View logs:
+   sudo journalctl -u lansnix -f
+
+
+🌐 ACCESS FROM OTHER DEVICES:
+═══════════════════════════════════════════════════════════════
+
+1. Find your Linux IP:
+   ip addr show | grep "inet "
+
+2. Open firewall:
+   sudo ufw allow 3000/tcp
+   sudo ufw allow 8080/tcp
+
+3. Access from phone/tablet/PC:
+   http://YOUR-LINUX-IP:3000
+
+
+⚙️ CONFIGURATION:
+═══════════════════════════════════════════════════════════════
+
+Edit settings:
+   cd ~/lansnix
+   nano .env
+
+Common changes:
+   SCAN_INTERVAL=120          # Scan every 2 minutes
+   SUBNET=192.168.1.0/24      # Specific subnet
+   PORT_SCAN_ENABLED=false    # Disable port scanning
+
+Apply changes:
+   sudo docker compose restart
+
+
+🐛 TROUBLESHOOTING:
+═══════════════════════════════════════════════════════════════
+
+Check if running:
+   sudo docker compose ps
+
+View backend logs:
+   sudo docker compose logs backend
+
+Check API health:
+   curl http://localhost:8080/api/health
+
+Check what's using port:
+   sudo lsof -i :3000
+
+
+🔄 DAILY OPERATIONS:
+═══════════════════════════════════════════════════════════════
+
+Start:
+   sudo docker compose up -d
+
+Stop:
+   sudo docker compose down
+
+Restart:
+   sudo docker compose restart
+
+Update:
+   cd ~/lansnix
+   git pull
+   sudo docker compose pull
+   sudo docker compose up -d
+
+
+💾 BACKUP:
+═══════════════════════════════════════════════════════════════
+
+Backup database:
+   sudo cp data/lansnix.db data/lansnix.db.backup
+
+Restore database:
+   sudo cp data/lansnix.db.backup data/lansnix.db
+   sudo docker compose restart
+
+
+🗑️ UNINSTALL:
+═══════════════════════════════════════════════════════════════
+
+Docker:
+   cd ~/lansnix
+   sudo docker compose down -v
+   cd ~ && rm -rf lansnix
+
+System install:
+   sudo bash ~/lansnix/scripts/uninstall.sh
+
+
+📊 TEST COMMANDS:
+═══════════════════════════════════════════════════════════════
+
+Health check:
+   curl http://localhost:8080/api/health
+
+Get devices:
+   curl http://localhost:8080/api/devices
+
+Get stats:
+   curl http://localhost:8080/api/stats
+
+Trigger scan:
+   curl -X POST http://localhost:8080/api/scan
+
+
+🎯 SUPPORTED LINUX DISTRIBUTIONS:
+═══════════════════════════════════════════════════════════════
+
+✓ Ubuntu 20.04+
+✓ Debian 11+
+✓ Arch Linux
+✓ Fedora
+✓ RHEL/CentOS
+✓ Raspberry Pi OS
+
+
+📞 NEED HELP?
+═══════════════════════════════════════════════════════════════
+
+Read full guide:
+   cat ~/lansnix/LINUX_USAGE_GUIDE.md
+
+Check documentation:
+   cat ~/lansnix/docs/INSTALLATION.md
+
+Report issues:
+   https://github.com/YOUR-USERNAME/lansnix/issues
+
+
+═══════════════════════════════════════════════════════════════
+
+Created by Yasir Ispawoo
+https://github.com/ispawoo
+
+Enjoy monitoring your network! 🚀
+
+═══════════════════════════════════════════════════════════════
