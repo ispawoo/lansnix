@@ -9,9 +9,6 @@ import (
 	"sync"
 	"time"
 
-	"github.com/google/gopacket"
-	"github.com/google/gopacket/layers"
-	"github.com/google/gopacket/pcap"
 	"github.com/ispawoo/lansnix/internal/config"
 	"github.com/ispawoo/lansnix/internal/database"
 	"github.com/ispawoo/lansnix/internal/vendor"
