@@ -32,7 +32,6 @@ WORKDIR /app
 
 # Copy binary from builder
 COPY --from=builder /build/lansnix .
-COPY --from=builder /build/internal/vendor/oui.txt ./internal/vendor/
 
 # Create data directory
 RUN mkdir -p /data /logs && \
