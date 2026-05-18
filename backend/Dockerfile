@@ -1,50 +1,38 @@
-# LANsnix Backend Dockerfile
+# LANsnix Frontend Dockerfile
 # Created by Yasir Ispawoo (https://github.com/ispawoo)
 
-FROM golang:1.21-alpine AS builder
+FROM node:20-alpine AS builder
 
-# Install build dependencies
-RUN apk add --no-cache gcc musl-dev libpcap-dev git
+WORKDIR /app
 
-WORKDIR /build
-
-# Copy go mod files
-COPY go.mod go.sum ./
-RUN go mod download
+# Copy package files
+COPY package*.json ./
+RUN npm install
 
 # Copy source code
 COPY . .
 
-# Build binary
-RUN CGO_ENABLED=1 GOOS=linux go build -a -installsuffix cgo -ldflags="-w -s" -o lansnix ./cmd/server
+# Build application
+RUN npm run build
 
-# Final stage
-FROM alpine:latest
-
-# Install runtime dependencies
-RUN apk add --no-cache libpcap ca-certificates
-
-# Create non-root user
-RUN addgroup -g 1000 lansnix && \
-    adduser -D -u 1000 -G lansnix lansnix
+# Production stage
+FROM node:20-alpine
 
 WORKDIR /app
 
-# Copy binary from builder
-COPY --from=builder /build/lansnix .
-
-# Create data directory
-RUN mkdir -p /data /logs && \
-    chown -R lansnix:lansnix /app /data /logs
+# Copy built application
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
+COPY --from=builder /app/public ./public
 
 # Labels
 LABEL maintainer="Yasir Ispawoo <https://github.com/ispawoo>"
-LABEL description="LANsnix - Realtime LAN Discovery & Monitoring Platform"
+LABEL description="LANsnix Frontend - Realtime LAN Discovery & Monitoring Platform"
 LABEL version="1.0.0"
 
-EXPOSE 8080
+EXPOSE 3000
 
-# Run as non-root (note: requires NET_RAW capability)
-USER lansnix
+ENV NODE_ENV=production
+ENV PORT=3000
 
-CMD ["./lansnix"]
+CMD ["node", "server.js"]
